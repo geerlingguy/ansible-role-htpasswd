@@ -8,7 +8,7 @@
         name: johndoe
         password: 'supersecure'
         owner: root
-        group: httpd
+        group: apache
         mode: 'u+rw,g+r'
 
     apache_remove_default_vhost: True
@@ -20,7 +20,7 @@
               <Directory "/var/www/html">
                   AuthType Basic
                   AuthName "Apache with basic auth."
-                  AuthUserFile /etc/apache-passwdfile
+                  AuthUserFile /etc/httpd/passwdfile
                   Require valid-user
               </Directory>
 

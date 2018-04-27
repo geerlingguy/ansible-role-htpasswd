@@ -4,8 +4,6 @@ services: docker
 env:
   - distro: centos7
     playbook: test-apache.yml
-  - distro: fedora27
-    playbook: test-apache.yml
   - distro: ubuntu1604
     playbook: test-nginx.yml
   - distro: debian9
