@@ -1,4 +1,5 @@
 ---
+# # Note: This playbook is built to work on Debian-derivative Linux OSes.
 - hosts: all
 
   vars:
@@ -32,5 +33,5 @@
       package: name=curl state=installed
 
   roles:
-    - geerlingguy.apache
+    - geerlingguy.nginx
     - role_under_test

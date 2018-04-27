@@ -2,20 +2,14 @@
 services: docker
 
 env:
-  # Test with Nginx.
   - distro: centos7
-    playbook: test-nginx.yml
+    playbook: test-apache.yml
   - distro: fedora27
-    playbook: test-nginx.yml
+    playbook: test-apache.yml
   - distro: ubuntu1604
     playbook: test-nginx.yml
   - distro: debian9
     playbook: test-nginx.yml
-  # Test with Apache.
-  - distro: centos7
-    playbook: test-apache.yml
-  - distro: ubuntu1604
-    playbook: test-apache.yml
 
 addons:
   hosts:
