@@ -13,7 +13,7 @@
     apache_remove_default_vhost: True
     apache_vhosts:
       - listen: "80"
-        server_name: "htpassword.test"
+        servername: "htpassword.test"
         documentroot: "/var/www/html"
         extra_parameters: |
               <Directory "/var/www/html">
