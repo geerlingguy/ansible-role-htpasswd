@@ -1,33 +1,32 @@
 ---
+language: python
 services: docker
 
 env:
-  - distro: centos7
-    playbook: test-apache.yml
-  - distro: ubuntu1604
-    playbook: test-nginx.yml
-  - distro: debian9
-    playbook: test-nginx.yml
+  global:
+    - ROLE_NAME: htpasswd
+  matrix:
+    - MOLECULE_DISTRO: centos7
+      MOLECULE_DOCKER_COMMAND: /usr/lib/systemd/systemd
+      MOLECULE_PLAYBOOK: playbook-apache.yml
+    - MOLECULE_DISTRO: ubuntu1604
+      MOLECULE_PLAYBOOK: playbook-nginx.yml
+    - MOLECULE_DISTRO: debian9
+      MOLECULE_PLAYBOOK: playbook-nginx.yml
 
-addons:
-  hosts:
-    - htpassword.test
+install:
+  # Install test dependencies.
+  - pip install molecule docker
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME geerlingguy.$ROLE_NAME
+  - cd geerlingguy.$ROLE_NAME
 
 script:
-  # Configure test script so we can run extra tests after playbook is run.
-  - export container_id=$(date +%s)
-  - export cleanup=false
-
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
-
   # Run tests.
-  - ${PWD}/tests/test.sh
-
-  # Ensure http basic auth is required to connect to the vhost.
-  - 'docker exec --tty ${container_id} env TERM=xterm bash -c "curl --write-out %{http_code} --silent --output /dev/null http://localhost/ | grep 401"'
-  - 'docker exec --tty ${container_id} env TERM=xterm curl -u johndoe:supersecure http://localhost/'
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

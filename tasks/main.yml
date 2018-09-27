@@ -16,4 +16,4 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode | default('u+rw,g+r') }}"
   with_items: "{{ htpasswd_credentials }}"
-  no_log: True
+  no_log: true
