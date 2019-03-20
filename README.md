@@ -105,7 +105,7 @@ None.
           when: ansible_os_family == 'Debian'
     
       roles:
-        - geerlingguy.apache
+        - geerlingguy.nginx
         - geerlingguy.htpasswd
 
 ## License
