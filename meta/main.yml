@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: htpasswd
   author: geerlingguy
   description: htpasswd installation and helper role for Linux servers.
   company: "Midwestern Mac, LLC"
