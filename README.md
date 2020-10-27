@@ -1,6 +1,6 @@
 # Ansible Role: htpasswd
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-htpasswd.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-htpasswd)
+[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-htpasswd.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-htpasswd)
 
 An Ansible Role that installs `htpasswd` and allows easy configuration of `htpasswd` authentication files and credentials (used for HTTP basic authentication with webservers like Apache and Nginx) on Linux-based servers.
 
