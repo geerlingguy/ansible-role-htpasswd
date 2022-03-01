@@ -41,11 +41,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - distro: centos8
+          - distro: rockylinux8
             playbook: apache.yml
           - distro: ubuntu1804
             playbook: nginx.yml
-          - distro: debian10
+          - distro: debian11
             playbook: nginx.yml
 
     steps:
