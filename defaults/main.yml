@@ -12,6 +12,7 @@ htpasswd_credentials: []
 #   password: 'supersecure'
 #   owner: root
 #   group: www-data
+#   hash_scheme: apr_md5_crypt
 #   mode: 0640
 
 # - path: /etc/apache2/passwdfile
