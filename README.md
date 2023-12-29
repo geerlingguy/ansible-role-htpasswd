@@ -26,6 +26,7 @@ htpasswd_credentials:
     owner: root
     group: www-data
     mode: 'u+rw,g+r'
+    hash_scheme: apr_md5_crypt
 
   - path: /etc/apache2/passwdfile
     name: janedoe
@@ -33,9 +34,10 @@ htpasswd_credentials:
     owner: root
     group: www-data
     mode: 'u+rw,g+r'
+    hash_scheme: apr_md5_crypt
 ```
 
-A list of credentials to be generated (or removed) in the respective files defined by the `path` key for each dict. All parameters except `mode` are required (`mode` defaults to `'u+rw,g+r'` (`0640` in octal)).
+A list of credentials to be generated (or removed) in the respective files defined by the `path` key for each dict. All parameters except `mode` and `hash_scheme` are required (`mode` defaults to `'u+rw,g+r'` (`0640` in octal), and `hash_scheme` defaults to `'apr_md5_crypt'`).
 
 ```yaml
 htpasswd_required_packages:
@@ -65,6 +67,7 @@ None.
         owner: root
         group: apache
         mode: 'u+rw,g+r'
+        hash_scheme: apr_md5_crypt
 
     apache_remove_default_vhost: True
     apache_vhosts:
@@ -103,6 +106,7 @@ None.
         owner: root
         group: www-data
         mode: 'u+rw,g+r'
+        hash_scheme: apr_md5_crypt
 
     nginx_remove_default_vhost: True
     nginx_vhosts:
