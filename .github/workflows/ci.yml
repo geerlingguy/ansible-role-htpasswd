@@ -19,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: 'geerlingguy.htpasswd'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
@@ -41,21 +41,21 @@ jobs:
     strategy:
       matrix:
         include:
-          - distro: rockylinux8
+          - distro: rockylinux9
             playbook: apache.yml
-          - distro: ubuntu1804
+          - distro: ubuntu2204
             playbook: nginx.yml
-          - distro: debian11
+          - distro: debian12
             playbook: nginx.yml
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: 'geerlingguy.htpasswd'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
