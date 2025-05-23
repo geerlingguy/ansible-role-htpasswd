@@ -2,7 +2,7 @@
 # Note: This playbook is built to work on Red Hat-derivative Linux OSes.
 - name: Converge
   hosts: all
-  #become: true
+  # become: true
 
   vars:
     htpasswd_credentials:

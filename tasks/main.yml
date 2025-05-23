@@ -21,6 +21,6 @@
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode | default('u+rw,g+r') }}"
-    hash_scheme: "{{ item.hash_scheme | default('apr_md5_crypt') }}" 
+    hash_scheme: "{{ item.hash_scheme | default('apr_md5_crypt') }}"
   with_items: "{{ htpasswd_credentials }}"
   no_log: "{{ htpasswd_nolog }}"
