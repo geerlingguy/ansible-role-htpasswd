@@ -1,0 +1,4 @@
+---
+__htpasswd_required_packages:
+  - apache
+  - python-passlib
