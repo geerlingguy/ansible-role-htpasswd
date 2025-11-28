@@ -85,7 +85,7 @@ None.
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts.os_family == 'Debian'
 
   roles:
     - geerlingguy.apache
@@ -124,7 +124,7 @@ None.
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts.os_family == 'Debian'
 
   roles:
     - geerlingguy.nginx
